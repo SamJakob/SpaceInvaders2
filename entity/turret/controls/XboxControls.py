@@ -23,4 +23,9 @@ class XboxControls():
         if self.controller.get_left_stick()[0] >= 0.5:
             return True
 
+    def shoot(self):
+        if self.controller.get_buttons()[xbox360_controller.A]:
+            return True
+
     def feedback(self):
+        pass

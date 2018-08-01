@@ -2,7 +2,9 @@ import pygame
 
 class Turret:
     def __init__(self, MovementControls):
-        self.speed = 20
+        self.speed = 40
+        self.lives = 3
+        self.score = 0
 
         self.spriteImage = "assets/sprites/turret/shooter.png"
         self.sprite = pygame.image.load(self.spriteImage)
@@ -14,6 +16,24 @@ class Turret:
         self.y = 0
 
         self.movementControls = MovementControls
+
+    def getScore(self):
+        return self.score
+
+    def setScore(self, score):
+        self.score = score
+
+    def addScore(self, scoreDelta):
+        self.score += scoreDelta
+
+    def removeScore(self, negativeScoreDelta):
+        self.score -= negativeScoreDelta
+
+    def getLives(self):
+        return self.lives
+
+    def setLives(self, lives):
+        self.lives = lives
 
     def getSprite(self):
         return self.sprite

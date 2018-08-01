@@ -1,7 +1,7 @@
 import pygame
 from entity.turret.controls.lib import xbox360_controller
 from util.stage import Stage, TextPositions
-from struct import GameState
+from app_struct import GameState
 
 class Menu:
     def __init__(self, application):
@@ -23,7 +23,7 @@ class Menu:
             TextPositions.CENTER_ALIGN,
             self.application.TEXT_COLOR
         )
-        self.screen.blit(title.text, (title.pos_x, 200))
+        self.screen.blit(title.text, (title.pos_x, self.screen.get_height() * 0.4))
 
         # Draw the subtitle
         subtitle = Stage.renderText(
@@ -33,7 +33,7 @@ class Menu:
             TextPositions.CENTER_ALIGN,
             self.application.TEXT_COLOR
         )
-        self.screen.blit(subtitle.text, (subtitle.pos_x, 310))
+        self.screen.blit(subtitle.text, (subtitle.pos_x, self.screen.get_height() * 0.62))
 
         # Draw the play button
         playButtonRect = self.playBtnImg.get_rect()
@@ -41,7 +41,7 @@ class Menu:
         # Center the play button
         playButtonX = Stage.calculateCenterX(self.screen, playButtonRect)
         playButtonRect.x = playButtonX
-        playButtonRect.y = 400
+        playButtonRect.y = self.screen.get_height() * 0.8
 
         # Change the play button on hover
         if playButtonRect.collidepoint(pygame.mouse.get_pos()):
